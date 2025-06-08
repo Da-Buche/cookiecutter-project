@@ -1,0 +1,24 @@
+## Generic .gitignore (using alphanumeric sorting)
+##
+## Directory names should end with trailing slash '/'
+## This is used to automate grep --exclude-dir expressions
+
+*.pyc
+.DS_Store
+.git/
+.idea/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.shellspec-local
+.shellspec-quick.log
+.venv/
+__pycache__/
+__pypackages__/
+_build/
+build/
+node_modules/
+report/results_junit.xml
+uv.lock
+venv/
+
