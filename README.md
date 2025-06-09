@@ -18,5 +18,6 @@ A project template to get started quickly with a solid framework.
 4. Verify setup: `make test` or `make test_all`.
 5. Start developping and add tests as needed.
 
-## Credits
-Based on the awesome [Cookiecutter](https://github.com/cookiecutter/cookiecutter) tool.
+## Dependencies
+[Dependencies](./DEPENDENCIES.md)
+

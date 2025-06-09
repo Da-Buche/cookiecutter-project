@@ -1,0 +1,8 @@
+[project]
+name = cookiecutter-project
+version = 0.1.0
+description = "Cookiecutter template for projects including several languages (bash, python, ...)."
+dependencies = [
+  "cookiecutter",
+]
+
