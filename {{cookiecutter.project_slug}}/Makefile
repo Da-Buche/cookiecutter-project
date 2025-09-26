@@ -47,9 +47,12 @@ clean: ## Remove all generated files.
 
 .PHONY: install
 install: clean ## Install required tools & packages to make project work.
-## Install uv and shellspec
-	uv --version >/dev/null || (curl -LsSf https://astral.sh/uv/install.sh | sh)
-	shellspec --version >/dev/null || (curl -fsSL https://git.io/shellspec | sh -s -- --yes)
+## Install uv using pip
+	python -m venv .venv
+	./.venv/bin/pip install --upgrade pip
+	./.venv/bin/pip install uv
+## Install shellspec
+	#shellspec --version >/dev/null || (curl -fsSL https://git.io/shellspec | sh -s -- --yes)
 ## Install python dependencies
 	uv sync
 
@@ -61,8 +64,8 @@ install: clean ## Install required tools & packages to make project work.
 .PHONY: test
 test: ## Run previously failed tests until first failure.
 	@shellspec --version >/dev/null || (>&2 echo 'Are you sure shellspec is installed and added to $$PATH?' && false)
-	@env                                          \
-    PATH="$$HOME/.local/bin:$$PATH"             \
+	@env                                        \
+    PATH="./.venv/bin:$$PATH"                   \
     EXAMPLE="$(filter-out $@, $(MAKECMDGOALS))" \
     bash -c 'shellspec --shell /bin/bash --color --quick --fail-fast -fd $${EXAMPLE:+--example }$$EXAMPLE $$SHELLSPEC_EXTRA_ARGS'
 
