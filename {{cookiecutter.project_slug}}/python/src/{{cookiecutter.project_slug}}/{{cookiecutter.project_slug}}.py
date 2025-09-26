@@ -36,7 +36,7 @@ cli.addHandler(handler)
 # ruff: noqa: FBT001, FBT002 - positional boolean argument is required by typer
 def version_callback(value: bool = False) -> None:
   """Print project version and exit."""
-  from __init__ import __version__  # type: ignore [import-not-found]
+  from __init__ import __version__  # type: ignore [import-not-found] # noqa: PLC0415
   script_name = Path(__file__).stem
   if value:
     cli.info(f"{script_name} version: {__version__}")
