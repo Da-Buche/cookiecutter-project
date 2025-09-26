@@ -54,7 +54,7 @@ install: clean ## Install required tools & packages to make project work.
 ## Install shellspec
 	#shellspec --version >/dev/null || (curl -fsSL https://git.io/shellspec | sh -s -- --yes)
 ## Install python dependencies
-	uv sync
+	./.venv/bin/uv sync
 
 
 ## =======================================================
